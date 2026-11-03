@@ -1,0 +1,152 @@
+* { box-sizing: border-box; }
+.cuerpo { 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f8ef; color: #244334; }
+.encabezado { 
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 15px; flex-wrap: wrap; 
+    box-shadow: 0 2px 10px #dce8d8; }
+.logo { color: #287348; 
+    font-size: 25px;
+    font-weight: bold;
+     text-decoration: none; }
+.menu { display: flex;
+    gap: 8px;
+    flex-wrap: wrap; }
+.boton-menu { 
+    background: #edf6e9;
+    color: #286342;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 18px;
+    cursor: pointer; }
+.boton-menu:hover { 
+    background: #cfe8c8; }
+.contenedor { 
+    width: 86%;
+    max-width: 1100px;
+    margin: 30px auto;
+    min-height: 65vh; }
+.seccion { 
+    display: none; }
+.seccion.activa { 
+    display: block; }
+.portada { 
+    background: linear-gradient(135deg, #dff1d7, #e8f4f8);
+    padding: 55px 25px;
+    border-radius: 25px;
+    text-align: center; }
+.etiqueta { color: #4c8b5e; font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+.titulo-principal { font-size: 42px; margin: 15px 0; }
+.texto-portada { max-width: 600px; margin: 0 auto 25px; line-height: 1.7; }
+.boton-principal { background: #398553; color: white; border: none; padding: 13px 22px; border-radius: 22px; font-size: 15px; cursor: pointer; margin-top: 10px; }
+.boton-principal:hover { background: #286b40; transform: scale(1.04); }
+.tarjetas-inicio, .tarjetas-estadisticas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 25px; }
+.tarjeta { background: white; border: 1px solid #dcebd7; border-radius: 18px; padding: 22px; text-align: center; box-shadow: 0 4px 12px #e0e9dc; }
+.emoji-tarjeta { font-size: 32px; }
+.titulo-tarjeta { margin-bottom: 8px; font-size: 19px; }
+.texto-tarjeta { line-height: 1.5; color: #597061; font-size: 14px; }
+.encabezado-seccion { text-align: center; margin: 35px 0 25px; }
+.titulo-seccion { font-size: 32px; margin: 8px 0; }
+.texto-seccion { color: #597061; }
+.panel { 
+    background: white;
+    border: 1px solid #dcebd7;
+    border-radius: 20px;
+    padding: 28px; max-width: 650px; margin: 0 auto; box-shadow: 0 4px 12px #e0e9dc; }
+.etiqueta-campo { display: block;
+    font-weight: bold;
+    margin-bottom: 10px; }
+.campo {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b8d4b4;
+    border-radius: 10px;
+    background: #fbfdf9;
+    font-size: 15px;
+    margin-bottom: 12px; }
+.ayuda-campo, .nota { color: #668071;
+    font-size: 12px;
+    line-height: 1.5; }
+.resultado { 
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #edf7e9; 
+    line-height: 1.6; }
+.consejo { 
+    margin-top: 20px; 
+    padding: 12px 18px; 
+    background: #fff8df; 
+    border-radius: 12px; }
+.lista-retos { 
+    display: grid;
+    gap: 14px; 
+    max-width: 800px; 
+    margin: 0 auto; }
+.reto { background: white;
+    border: 1px solid #dcebd7; 
+    border-radius: 16px; 
+    padding: 18px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 15px; }
+.reto .titulo-tarjeta, .reto .texto-tarjeta { 
+    margin-top: 0; 
+    margin-bottom: 5px; }
+.boton-reto, .boton-secundario { 
+    background: #e5f3df;
+    color: #286342;
+    border: 1px solid #b8d7b1; 
+    border-radius: 18px; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    white-space: nowrap; }
+.boton-reto:hover, .boton-secundario:hover { 
+    background: #cfe8c8; }
+.boton-reto:disabled { 
+    background: #e7e7e7; 
+    color: #777; 
+    cursor: default; }
+.estadistica { 
+    min-height: 180px; }
+.numero-estadistica { 
+    font-size: 35px;
+    font-weight: bold; 
+    color: #398553; 
+    margin: 10px; }
+.mensaje-estadistica { 
+    line-height: 1.5; }
+.boton-secundario { 
+    display: block;
+    margin: 22px auto; }
+.pie { 
+    text-align: center; 
+    background: #e5f0df; 
+    padding: 15px; 
+    margin-top: 40px; }
+.texto-pie { 
+    color: #41664e; 
+    font-size: 13px; }
+    @media (max-width: 700px) {
+ .encabezado { 
+    justify-content: center; }
+ .menu { 
+    justify-content: center; }
+ .contenedor { 
+    width: 92%; }
+ .titulo-principal { 
+    font-size: 32px; }
+ .tarjetas-inicio, 
+ .tarjetas-estadisticas { 
+    grid-template-columns: 1fr; }
+ .reto { 
+    align-items: flex-start; 
+    flex-direction: column; }
+}

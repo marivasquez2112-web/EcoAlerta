@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAlerta</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="cuerpo">
+<header class="encabezado">
+    <a class="logo" href="#" onclick="mostrarSeccion('inicio'); return false;">EcoAlerta</a>
+    <nav class="menu">
+        <button class="boton-menu" onclick="mostrarSeccion('clasificador')">EcoClasificador</button>
+        <button class="boton-menu" onclick="mostrarSeccion('agua')">EcoAgua</button>
+        <button class="boton-menu" onclick="mostrarSeccion('retos')">Retos</button>
+        <button class="boton-menu" onclick="mostrarSeccion('estadisticas')">Estadísticas</button>
+    </nav>
+</header>
+<main class="contenedor">
+    <section class="seccion activa" id="inicio">
+        <div class="portada">
+            <p class="etiqueta">PEQUEÑAS ACCIONES, GRANDES CAMBIOS</p>
+            <h1 class="titulo-principal">¡El planeta te necesita!</h1>
+            <p class="texto-portada">
+                Aprende a reciclar, ahorrar agua y cumplir retos ecológicos mientras ganas puntos.</p>
+            <button class="boton-principal" onclick="mostrarSeccion('clasificador')">Comenzar</button>
+        </div>
+        <div class="tarjetas-inicio">
+            <article class="tarjeta">
+                <h2 class="titulo-tarjeta">Recicla mejor</h2>
+                <p class="texto-tarjeta">Descubre dónde depositar cada residuo.</p>
+            </article>
+            <article class="tarjeta">
+                <h2 class="titulo-tarjeta">Ahorra agua</h2>
+                <p class="texto-tarjeta">Calcula tu consumo aproximado.</p>
+            </article>
+
+            <article class="tarjeta">
+                <h2 class="titulo-tarjeta">Acepta retos</h2>
+                <p class="texto-tarjeta">Cumple acciones ecológicas y suma puntos.</p>
+            </article>
+        </div>
+    </section>
+    <section class="seccion" id="clasificador">
+        <div class="encabezado-seccion">
+            <p class="etiqueta">RECICLAJE INTELIGENTE</p>
+            <h1 class="titulo-seccion">EcoClasificador</h1>
+            <p class="texto-seccion">Selecciona un residuo para saber cómo separarlo.</p>
+        </div>
+        <div class="panel">
+            <label class="etiqueta-campo" for="residuo">¿Qué residuo tienes?</label>
+            <select class="campo" id="residuo">
+                <option value="">Selecciona una opción</option>
+                <option value="botella">Botella plástica limpia</option>
+                <option value="papel">Papel o cartón limpio y seco</option>
+                <option value="vidrio">Botella o frasco de vidrio</option>
+                <option value="organico">Restos de comida</option>
+                <option value="ordinario">Papel higiénico usado o servilleta sucia</option>
+                <option value="pila">Pilas usadas</option>
+            </select>
+            <button class="boton-principal" onclick="clasificarResiduo()">Consultar residuo</button>
+            <div class="resultado" id="resultado-residuo">
+                Aquí aparecerá la recomendación.
+            </div>
+            <p class="nota">
+                Los colores pueden variar según las normas locales. Lleva las pilas a un punto de recolección especial. </p>
+        </div>
+    </section>
+    <section class="seccion" id="agua">
+        <div class="encabezado-seccion">
+            <p class="etiqueta">CADA GOTA CUENTA</p>
+            <h1 class="titulo-seccion">EcoAgua</h1>
+            <p class="texto-seccion">Calcula el agua que usas al ducharte.</p>
+        </div>
+        <div class="panel">
+            <label class="etiqueta-campo" for="minutos-ducha">
+                ¿Cuántos minutos dura tu ducha?
+            </label>
+            <input class="campo" type="number" id="minutos-ducha" min="0" max="180" placeholder="Ejemplo: 8">
+            <p class="ayuda-campo">Usaremos una estimación de 10 litros por minuto.</p>
+            <button class="boton-principal" onclick="calcularAgua()">Calcular consumo</button>
+            <div class="resultado" id="resultado-agua">
+                Tu cálculo aparecerá aquí.
+            </div>
+            <div class="consejo">
+                <h2 class="titulo-tarjeta">Consejo ecológico</h2>
+                <p class="texto-tarjeta">
+                    Cierra la llave mientras te enjabonas y toma duchas más cortas.</p>
+            </div>
+        </div>
+    </section>
+    <section class="seccion" id="retos">
+        <div class="encabezado-seccion">
+            <p class="etiqueta">¡PONTE A PRUEBA!</p>
+            <h1 class="titulo-seccion">Retos ecológicos</h1>
+            <p class="texto-seccion">Marca los retos cuando los hayas cumplido.</p>
+        </div>
+        <div class="lista-retos">
+            <article class="reto">
+                <div>
+                    <h2 class="titulo-tarjeta">Cerrar la llave</h2>
+                    <p class="texto-tarjeta">Cierra la llave mientras te cepillas.</p>
+                </div>
+                <button class="boton-reto" id="reto-1" onclick="completarReto(1)">Completar +10</button>
+            </article>
+            <article class="reto">
+                <div>
+                    <h2 class="titulo-tarjeta">Separar residuos</h2>
+                    <p class="texto-tarjeta">Separa correctamente los residuos de tu casa.</p>
+                </div>
+                <button class="boton-reto" id="reto-2" onclick="completarReto(2)">Completar +10</button>
+            </article>
+            <article class="reto">
+                <div>
+                    <h2 class="titulo-tarjeta">Ahorrar energía</h2>
+                    <p class="texto-tarjeta">Apaga las luces que no estés usando.</p>
+                </div>
+                <button class="boton-reto" id="reto-3" onclick="completarReto(3)">Completar +10</button>
+            </article>
+            <article class="reto">
+                <div>
+                    <h2 class="titulo-tarjeta">Reutilizar una bolsa</h2>
+                    <p class="texto-tarjeta">Usa una bolsa reutilizable.</p>
+                </div>
+                <button class="boton-reto" id="reto-4" onclick="completarReto(4)">Completar +10</button>
+            </article>
+        </div>
+    </section>
+    <section class="seccion" id="estadisticas">
+        <div class="encabezado-seccion">
+            <p class="etiqueta">TU PROGRESO</p>
+            <h1 class="titulo-seccion">Estadísticas</h1>
+            <p class="texto-seccion">Mira tu progreso ecológico.</p>
+        </div>
+        <div class="tarjetas-estadisticas">
+            <article class="tarjeta estadistica">
+                <p class="texto-tarjeta">Puntos obtenidos</p>
+                <p class="numero-estadistica" id="total-puntos">0</p>
+            </article>
+            <article class="tarjeta estadistica">
+                <p class="texto-tarjeta">Retos completados</p>
+                <p class="numero-estadistica" id="total-retos">0 de 4</p>
+            </article>
+
+            <article class="tarjeta estadistica">
+                <p class="texto-tarjeta">Mensaje ecológico</p>
+                <p class="mensaje-estadistica" id="mensaje-estadistica">
+                    ¡Empieza con un pequeño reto!
+                </p>
+            </article>
+        </div>
+        <button class="boton-secundario" onclick="reiniciarProgreso()">Reiniciar progreso</button>
+    </section>
+</main>
+<footer class="pie">
+    <p class="texto-pie">EcoAlerta - Cuidar el planeta empieza contigo.</p>
+</footer>
+<script src="./java/funcion.js"></script>
+</body>
+</html>
